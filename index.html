@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Eleus - Diálogo com Eleus</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon-eleus.ico">
+</head>
+<body>
+    <div class="container eleus-theme">
+        <!-- Cabeçalho do Chat -->
+        <div class="chat-header">
+            <div class="avatar">
+                <img src="./assets/Eleus.png" alt="Eleus" id="avatar-img">
+                <div class="online-dot eleus"></div>
+            </div>
+            <div class="header-info">
+                <h1>Eleus</h1>
+                <p class="subtitle">Guardião do Conhecimento Ancestral</p>
+                <div class="status">
+                    <span class="typing-indicator" id="typing">processando...</span>
+                    <span class="affinity" id="affinity-score">Sintonia: 0%</span>
+                </div>
+            </div>
+            <button class="restart-btn" id="restart-btn" title="Reiniciar diálogo">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+
+        <!-- Área de Conversa -->
+        <div class="chat-container" id="chat-container">
+            <div class="message character initial">
+                <div class="message-avatar">
+                    <img src="./assets/Eleus.png" alt="Eleus">
+                </div>
+                <div class="message-content">
+                    <p class="text">Saudações, buscador. Eu sou Eleus, guardião dos segredos ancestrais. Seu perfil energético ressoa com padrões antigos... Você está preparado para o Teste da Memória Cósmica?</p>
+                    <span class="time">21:47</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Área de Escolhas -->
+        <div class="choices-container" id="choices-container">
+            <div class="choices-header">
+                <i class="fas fa-brain"></i>
+                <span>SELECIONE SEU CAMINHO</span>
+            </div>
+            <div class="choices" id="choices">
+                <button class="choice-btn" data-choice="1" data-next="scene1">
+                    <span class="choice-number">α</span>
+                    <span class="choice-text">Estou preparado. Revela-me os mistérios.</span>
+                </button>
+                <button class="choice-btn" data-choice="2" data-next="scene2">
+                    <span class="choice-number">β</span>
+                    <span class="choice-text">Que padrões antigos? Explica-te, guardião.</span>
+                </button>
+                <button class="choice-btn" data-choice="3" data-next="scene3">
+                    <span class="choice-number">γ</span>
+                    <span class="choice-text">Teste da Memória Cósmica? Soa perigoso...</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Barra de Progresso -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span>INICIAÇÃO DO PROTOCOLO</span>
+                <span id="scene-counter">Nível 1/7</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 14%"></div>
+            </div>
+            <div class="progress-labels">
+                <span>Neófito</span>
+                <span>Iluminado</span>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="footer">
+            <div class="qr-section">
+                <div class="qr-code">
+                    <div class="qr-placeholder eleus">
+                        <i class="fas fa-globe-europe"></i>
+                        <p>Portal Dimensional</p>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <h3>Protocolo Eleus - Iniciação Ancestral</h3>
+                    <p>Cada diálogo desbloqueia memórias cósmicas adormecidas em seu ser.</p>
+                    <p class="copyright">© Arquivos Eleusinos - O conhecimento é um portal.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Final -->
+    <div class="modal" id="ending-modal">
+        <div class="modal-content eleus-modal">
+            <div class="modal-header">
+                <h2 id="ending-title">INICIAÇÃO CONCLUÍDA</h2>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="ending-icon" id="ending-icon">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3 id="ending-subtitle">Consciência Expandida</h3>
+                <p id="ending-text">Sua conexão com Eleus foi registrada nos anais dimensionais.</p>
+                
+                <div class="ending-stats">
+                    <div class="stat">
+                        <span class="stat-label">Sintonia Cósmica</span>
+                        <div class="stat-bar">
+                            <div class="stat-fill" id="final-affinity-bar"></div>
+                        </div>
+                        <span class="stat-value" id="final-affinity">0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Verdades Desveladas</span>
+                        <span class="stat-value" id="total-choices">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Estado Alcançado</span>
+                        <span class="stat-value" id="ending-type">Iniciado</span>
+                    </div>
+                </div>
+                
+                <div class="ending-actions">
+                    <button class="share-btn eleus-share" id="share-btn">
+                        <i class="fas fa-broadcast-tower"></i> Transmitir Experiência
+                    </button>
+                    <button class="restart-main-btn eleus-restart" id="restart-main-btn">
+                        <i class="fas fa-redo"></i> Nova Iniciação
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
